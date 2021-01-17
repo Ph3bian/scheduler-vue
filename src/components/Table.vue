@@ -6,8 +6,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td></td>
+      <tr v-for="(site, id) in data" :key="id">
+        <td v-for="header in headers" :key="header">
+          {{ site[header] }}
+        </td>
       </tr>
     </tbody>
   </table>
@@ -16,7 +18,7 @@
 <script>
 export default {
   props: {
-    sites: {
+    data: {
       type: Object,
       default: () => null
     },

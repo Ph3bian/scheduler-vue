@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <ListItem :sites="sites" />
-    <Table :data="sites" />
+  <div class="Sites">
+    <div class="SitesList">
+      <ListItem :sites="sites" />
+    </div>
+    <div class="SitesTable">
+      <Table :data="sites" :headers="headers" />
+    </div>
   </div>
 </template>
 <script>
@@ -12,6 +16,19 @@ export default {
   components: {
     ListItem,
     Table
+  },
+  data() {
+    return {
+      headers: [
+        "title",
+        "images",
+        "address",
+        "contacts",
+        "tags",
+        "createdAt",
+        "updatedAt"
+      ]
+    };
   },
   computed: mapState({
     sites: state => state.sites.data
@@ -24,30 +41,18 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/styles";
-.ListItem {
-  display: grid;
-  grid-template-columns: 5em auto auto;
-  padding: 1em;
-  column-gap: 1em;
-  align-items: center;
-  border: 1px solid var(--light-grey);
-  &Image {
-    border-radius: 50%;
-    height: 4em;
-    width: 4em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid var(--light-grey);
-    img {
-      width: 4em;
-      height: 4em;
-      border-radius: 50%;
+.Sites {
+  &List {
+    display: block;
+    @include md {
+      display: none;
     }
   }
-  &Arrow {
-    margin-left: auto;
-    width: 3em;
+  &Table {
+    display: none;
+    @include md {
+      display: block;
+    }
   }
 }
 </style>
