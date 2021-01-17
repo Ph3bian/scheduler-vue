@@ -1,3 +1,1 @@
-import Axios from "./axios";
-
-export { Axios };
+export { default as Axios } from "./axios";

@@ -34,12 +34,12 @@ export default {
     showMenu: {
       type: Boolean,
       required: true,
-      default: false,
+      default: false
     },
     menuItems: {
-      type: Array,
-    },
-  },
+      type: Array
+    }
+  }
 };
 </script>
 
