@@ -24,6 +24,9 @@
           d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"
         />
       </svg>
+      <div class="HeaderProfileInitials">
+        P
+      </div>
     </div>
   </div>
 </template>
@@ -50,10 +53,23 @@ export default {
   grid-template-columns: repeat(3, auto);
   background-color: var(--primary-color);
   color: var(--light);
-  padding: 1em;
+  padding: .875em 1.9em;
   text-align: center;
   &Profile {
     margin-left: auto;
+    display: flex;
+    &Initials{
+      border-radius: 50%;
+        margin-left: auto;
+      height: 1.7em;
+      width: 1.7em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--light);
+      color: var(--dark);
+      margin-left: .875em;
+    }
   }
   &Menu {
     margin-right: auto;
