@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles";
+@import "@/styles";
 .Header {
   display: grid;
   grid-template-columns: repeat(3, auto);

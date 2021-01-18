@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/styles";
+@import "@/styles";
 .Site {
   &Header {
     display: grid;

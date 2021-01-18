@@ -6,7 +6,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(site, id) in data" :key="id">
+      <tr
+        v-for="(site, id) in data"
+        :key="id"
+        @click="$emit(handleRowClick(site.id))"
+      >
         <td v-for="header in headers" :key="header">
           {{
             header.formatter
@@ -24,11 +28,11 @@ export default {
   props: {
     data: {
       type: Array
-    
     },
     headers: {
       type: Array
-    }
+    },
+    handleRowClick: { type: Function }
   },
   methods: {
     viewSite(id) {
@@ -38,17 +42,20 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../assets/styles";
+@import "@/styles";
 .Table {
   border-collapse: collapse;
   border-spacing: 0;
-
+   border: 1px solid var(--light-grey);
   tbody {
     tr {
       &:nth-of-type(odd) {
-        background: #f8f8f8;
         border-top: 1px solid var(--light-grey);
         border-bottom: 1px solid var(--light-grey);
+      }
+      &:hover {
+        background: var(--light-grey-3);
+        cursor: pointer;
       }
       td {
         font-size: 0.8em;

@@ -14,7 +14,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "@/assets/styles";
+@import "@/styles";
 .TableLoader {
   border: 1px solid var(--light-grey);
   border-radius: 4px;

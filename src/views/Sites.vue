@@ -1,10 +1,10 @@
 <template>
   <div class="Sites">
     <div class="SitesList">
-      <ListItem :sites="sites" />
+      <ListItem :sites="sites" :viewSite="viewSite" />
     </div>
     <div class="SitesTable">
-      <Table :data="sites" :headers="headers" />
+      <Table :data="sites" :headers="headers" :handleRowClick="viewSite" />
     </div>
   </div>
 </template>
@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/styles";
+@import "@/styles";
 .Sites {
   &List {
     display: block;
@@ -100,6 +100,8 @@ export default {
     display: none;
     @include md {
       display: block;
+      padding: 2em;
+      
     }
   }
 }

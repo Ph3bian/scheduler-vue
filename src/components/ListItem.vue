@@ -3,7 +3,7 @@
     class="ListItem"
     v-for="{ title, images, address, contacts, id } in sites"
     :key="title"
-    @click="viewSite(id)"
+    @click="$emit(viewSite(id))"
   >
     <div class="ListItemImage">
       <img :src="images[0]" :alt="title" />
@@ -30,17 +30,13 @@ export default {
   props: {
     sites: {
       type: Array
-    }
-  },
-  methods: {
-    viewSite(id) {
-      this.$router.push(`sites/${id}`);
-    }
+    },
+    viewSite: { type: Function }
   }
 };
 </script>
 <style scoped lang="scss">
-@import "../assets/styles";
+@import "@/styles";
 .ListItem {
   display: grid;
   grid-template-columns: 5em auto auto;
