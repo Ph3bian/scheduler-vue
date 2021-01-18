@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     viewSite(id) {
-      this.$router.push(`sites/${id}`);
+      this.$router.push(`/sites/${id}`);
     },
     bottomVisible() {
       const scrollY = window.scrollY;
@@ -101,7 +101,6 @@ export default {
     @include md {
       display: block;
       padding: 2em;
-      
     }
   }
 }

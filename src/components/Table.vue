@@ -46,7 +46,7 @@ export default {
 .Table {
   border-collapse: collapse;
   border-spacing: 0;
-   border: 1px solid var(--light-grey);
+  border: 1px solid var(--light-grey);
   tbody {
     tr {
       &:nth-of-type(odd) {

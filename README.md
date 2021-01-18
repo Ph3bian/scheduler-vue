@@ -1,4 +1,11 @@
 # scheduler-vue
+ View site information and view details about site 
+
+## Project Description (User Stories)
+
+- User can view a site list screen
+- User can view a site details screen
+
 
 ## Project setup
 ```

@@ -4,7 +4,7 @@ const state = () => ({
   data: [],
   site: {},
   page: 1,
-  limit: 15,
+  limit: 15
 });
 
 // getters
@@ -17,23 +17,22 @@ const actions = {
       .then(({ data }) => {
         commit("setSites", data);
       })
-      .catch((error) => {
+      .catch(error => {
         throw new Error(error);
       });
   },
-  addSite({ commit, state }) {
+  addSite({ commit }) {
     commit("increment");
-    console.log(state.page);
   },
   fetchSite({ commit }, id) {
     return Axios.get(`sites/${id}`)
       .then(({ data }) => {
         commit("setSite", data);
       })
-      .catch((error) => {
+      .catch(error => {
         throw new Error(error);
       });
-  },
+  }
 };
 
 // mutations
@@ -51,7 +50,7 @@ const mutations = {
   },
   increment(state) {
     state.page++;
-  },
+  }
 };
 
 export default {
@@ -59,5 +58,5 @@ export default {
   state,
   getters,
   actions,
-  mutations,
+  mutations
 };

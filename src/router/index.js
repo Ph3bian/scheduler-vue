@@ -2,18 +2,14 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
-    path: "/about",
-    name: "About",
-    component: () => import(/* webpackChunkName: "about" */ "@/views/About.vue")
-  },
-  {
     path: "/sites",
     name: "Sites",
     component: () => import(/* webpackChunkName: "sites" */ "@/views/Sites.vue")
   },
   {
-    path: "/sites:id",
+    path: "/sites/:id",
     name: "Site",
+    props: true,
     component: () => import(/* webpackChunkName: "site" */ "@/views/Site.vue")
   },
   { path: "/", redirect: "/sites" }

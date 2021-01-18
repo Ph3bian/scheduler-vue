@@ -12,7 +12,7 @@
       </svg>
     </div>
     <div>Scheduling</div>
-    <div className="{styles.LayoutHeaderProfile}">
+    <div class="HeaderProfile">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24"
