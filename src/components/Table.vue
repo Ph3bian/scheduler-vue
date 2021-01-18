@@ -47,6 +47,7 @@ export default {
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid var(--light-grey);
+  width: 100%;
   tbody {
     tr {
       &:nth-of-type(odd) {
