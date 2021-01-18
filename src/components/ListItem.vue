@@ -29,8 +29,7 @@
 export default {
   props: {
     sites: {
-      type: Object,
-      default: () => null
+      type: Array
     }
   },
   methods: {
