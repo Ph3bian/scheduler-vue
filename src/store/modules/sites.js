@@ -4,7 +4,10 @@ const state = () => ({
   data: [],
   site: {},
   page: 1,
-  limit: 15
+  limit: 15,
+  loading: true,
+  error: false,
+  errorMessage: ""
 });
 
 // getters
@@ -18,7 +21,7 @@ const actions = {
         commit("setSites", data);
       })
       .catch(error => {
-        throw new Error(error);
+        commit("setSitesError", error);
       });
   },
   addSite({ commit }) {
@@ -43,10 +46,16 @@ const mutations = {
       state.data = [...state.data, ...sites];
     } else {
       state.data = sites;
+      state.loading = false;
     }
   },
   setSite(state, site) {
     state.site = site;
+  },
+  setSitesError(state, error) {
+    state.error = true;
+    state.errorMessage = error.message;
+    state.loading = false;
   },
   increment(state) {
     state.page++;

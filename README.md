@@ -1,4 +1,4 @@
-# scheduler-vue
+# Scheduler-vue
  View site information and view details about site 
 
 ## Project Description (User Stories)

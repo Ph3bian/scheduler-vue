@@ -6,4 +6,11 @@ body {
   --light-grey-3: #f8f8f8;
   --grey: #2e4b65;
   --dark: #333333;
+  --shimmerBackgroundImage:linear-gradient(
+    -90deg,
+    #f6f7f9 0%,
+    #f9f9fa 50%,
+    #f6f7f9 100%
+  ) !important;
+  --shimmerWhite:#f6f7f8;
 }

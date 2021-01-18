@@ -1,10 +1,14 @@
 <template>
   <div class="Sites">
     <div class="SitesList">
-      <ListItem :sites="sites" :viewSite="viewSite" />
+      <div v-if="loading"><ListLoader /></div>
+      <div v-else><ListItem :sites="sites" :viewSite="viewSite" /></div>
     </div>
     <div class="SitesTable">
-      <Table :data="sites" :headers="headers" :handleRowClick="viewSite" />
+      <div v-if="loading"><TableLoader /></div>
+      <div v-else>
+        <Table :data="sites" :headers="headers" :handleRowClick="viewSite" />
+      </div>
     </div>
   </div>
 </template>
@@ -13,10 +17,14 @@ import { mapState } from "vuex";
 import { format } from "date-fns";
 import ListItem from "@/components/ListItem.vue";
 import Table from "@/components/Table.vue";
+import ListLoader from "@/components/Loader/ListLoader.vue";
+import TableLoader from "@/components/Loader/TableLoader.vue";
 export default {
   components: {
     ListItem,
-    Table
+    Table,
+    ListLoader,
+    TableLoader
   },
   data() {
     return {
@@ -55,7 +63,8 @@ export default {
     }
   },
   computed: mapState({
-    sites: state => state.sites.data
+    sites: state => state.sites.data,
+    loading: state => state.sites.loading
   }),
   created() {
     this.fetchSite();
