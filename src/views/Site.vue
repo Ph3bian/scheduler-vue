@@ -1,18 +1,15 @@
 <template>
   <div class="Site">
     <div class="SiteHeader">
-      <router-link :to="{ path: '/', query: { search: $route.query.search } }">
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-          </svg>
-        </div>
-      </router-link>
-
+      <div @click="$router.push('/sites')">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+      </div>
       <div class="SiteHeaderContent">
         <div class="SiteHeaderImage">
-          <img :src="site.images[0]" :alt="site.title" />
+          <img :src="formatImage(site.images[0])" :alt="site.title" />
         </div>
         <div class="SiteHeaderDescription">
           <h2>{{ site.title }}</h2>
@@ -129,6 +126,11 @@ export default {
   }),
   created() {
     this.$store.dispatch("sites/fetchSite", this.id);
+  },
+  methods: {
+    formatImage(imageArray) {
+      return String(imageArray);
+    }
   }
 };
 </script>

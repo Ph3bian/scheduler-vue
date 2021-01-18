@@ -85,7 +85,6 @@ export default {
   },
   watch: {
     bottom(newValue) {
-      console.log(newValue);
       if (newValue) {
         this.addSite();
       }

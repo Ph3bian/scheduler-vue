@@ -42,7 +42,6 @@ const actions = {
 const mutations = {
   setSites(state, sites) {
     if (state.page > 1) {
-      console.log(sites, "sites");
       state.data = [...state.data, ...sites];
     } else {
       state.data = sites;

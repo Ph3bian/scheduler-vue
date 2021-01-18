@@ -1,12 +1,15 @@
 <template>
-  <Layout />
+  <div>
+    <Header />
+    <router-view />
+  </div>
 </template>
 
 <script>
-import Layout from "@/components/Layout.vue";
+import Header from "@/components/Header.vue";
 export default {
   components: {
-    Layout
+   Header
   }
 };
 </script>
