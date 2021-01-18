@@ -29,10 +29,10 @@
 export default {
   props: {
     sites: {
-      type: Array
+      type: Array,
     },
-    viewSite: { type: Function }
-  }
+    viewSite: { type: Function },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -40,7 +40,7 @@ export default {
 .ListItem {
   display: grid;
   grid-template-columns: 5em auto auto;
-  padding: 1em;
+  padding: 1em 0.5em;
   column-gap: 1em;
   align-items: center;
   border: 1px solid var(--light-grey);
@@ -53,15 +53,20 @@ export default {
     align-items: center;
     border: 1px solid var(--light-grey);
     img {
-      width: 4em;
-      height: 4em;
+      width: 3.5em;
+      height: 3.5em;
       border-radius: 50%;
     }
   }
   &Arrow {
     margin-left: auto;
-    width: 3em;
+    width: 2.5em;
     cursor: pointer;
+  }
+  &Description {
+    h2 {
+      font-size: 1.125em;
+    }
   }
 }
 </style>

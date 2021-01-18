@@ -1,14 +1,13 @@
 <template>
   <div class="Site">
     <div class="SiteHeader">
-      <router-link to="/sites" exact>
-        <div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-          </svg>
-        </div>
-      </router-link>
+      <div @click="$router.back()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+        </svg>
+      </div>
+
       <div class="SiteHeaderContent">
         <div class="SiteHeaderImage">
           <img :src="site.images[0]" :alt="site.title" />
@@ -28,6 +27,9 @@
       </div>
     </div>
     <div class="SiteBody">
+      <div class="SiteBodyImage">
+        <img :src="site.images[0]" :alt="site.title" />
+      </div>
       <div class="List">
         <div class="ListItem">
           <span
@@ -46,9 +48,8 @@
           <div class="end">
             <p>
               {{
-                `${site.contacts?.main?.firstName || "--"} ${
-                  site.contacts?.main?.lastName || "--"
-                }`
+                `${site.contacts?.main?.firstName || "--"} ${site.contacts?.main
+                  ?.lastName || "--"}`
               }}
             </p>
             {{ site.contacts?.main?.jobTitle || "--" }}
@@ -122,11 +123,11 @@ import { mapState } from "vuex";
 export default {
   props: ["id"],
   computed: mapState({
-    site: (state) => state.sites.site,
+    site: state => state.sites.site
   }),
   created() {
     this.$store.dispatch("sites/fetchSite", this.id);
-  },
+  }
 };
 </script>
 
@@ -210,6 +211,15 @@ export default {
             height: 2.5em;
           }
         }
+      }
+    }
+    &Image {
+      border-radius: 4px;
+
+      img {
+        width: 100%;
+
+        object-fit: cover;
       }
     }
   }
