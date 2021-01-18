@@ -23,9 +23,9 @@ export default {
     return {
       data: Array(7).fill("5"),
 
-      dataRow: Array(12).fill("5"),
+      dataRow: Array(12).fill("5")
     };
-  },
+  }
 };
 </script>
 

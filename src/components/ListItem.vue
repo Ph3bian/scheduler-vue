@@ -29,10 +29,10 @@
 export default {
   props: {
     sites: {
-      type: Array,
+      type: Array
     },
-    viewSite: { type: Function },
-  },
+    viewSite: { type: Function }
+  }
 };
 </script>
 <style scoped lang="scss">

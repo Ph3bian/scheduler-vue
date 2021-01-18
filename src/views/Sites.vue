@@ -137,7 +137,8 @@ export default {
       margin: 1em 2em 0;
     }
 
-    &Search,&Arrow  {
+    &Search,
+    &Arrow {
       svg {
         width: 1.5em;
         height: 1.5em;
@@ -148,7 +149,7 @@ export default {
       }
       margin-left: auto;
     }
-    &Arrow{
+    &Arrow {
       margin: auto;
     }
   }

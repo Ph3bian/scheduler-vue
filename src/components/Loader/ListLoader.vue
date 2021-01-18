@@ -16,9 +16,9 @@
 export default {
   data() {
     return {
-      data: Array(10).fill("5"),
+      data: Array(10).fill("5")
     };
-  },
+  }
 };
 </script>
 

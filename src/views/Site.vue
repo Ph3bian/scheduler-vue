@@ -1,12 +1,14 @@
 <template>
   <div class="Site">
     <div class="SiteHeader">
-      <div @click="$router.back()">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-        </svg>
-      </div>
+      <router-link :to="{ path: '/', query: { search: $route.query.search } }">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </div>
+      </router-link>
 
       <div class="SiteHeaderContent">
         <div class="SiteHeaderImage">
@@ -143,6 +145,9 @@ export default {
     border-top: 1px solid var(--dark);
     border-bottom: 1px solid var(--dark);
     justify-content: start;
+    @include md {
+      padding: 1em;
+    }
     &Content {
       display: grid;
       grid-template-columns: repeat(2, auto);
@@ -182,17 +187,23 @@ export default {
     }
   }
   &Body {
+    @include md {
+      margin: 2em;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      height: 21em;
+      border: 1px solid var(--light-grey);
+    }
     .List {
-      @include md {
-        margin: 2em;
-        border: 1px solid var(--light-grey);
-        border-radius: 3px;
-      }
       &Item {
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid var(--light-grey);
+        &:last-child {
+          border-bottom: 0;
+        }
         padding: 1em 0.5em;
         @include md {
           padding: 1em;
@@ -214,12 +225,17 @@ export default {
       }
     }
     &Image {
-      border-radius: 4px;
-
+      border-right: 0;
+      @include md {
+        border-right: 1px solid var(--light-grey);
+        height: 21em;
+      }
       img {
         width: 100%;
-
         object-fit: cover;
+        @include md {
+          height: 20.8em;
+        }
       }
     }
   }
